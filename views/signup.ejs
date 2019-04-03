@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Notes Sign-Up Page</title>
+    <link rel="stylesheet" href="/css/signup.css">
+</head>
+<body>
+    <h1>Create an Account</h1>
+    <div class="container">
+        <form action="/signup" method="POST">
+            <label for="firstName">First Name</label>
+            <input type="text" name="firstName" id="firstName">
+
+            <label for="lastName">Last Name</label>
+            <input type="text" name="lastName" id="lastName">
+
+            <label for="email">E-mail</label>
+            <input type="email" name="email" id="email">
+
+            <label for="password">password</label>
+            <input type="password" name="password" id="password">
+
+            <button type="submit">Create Account</button>
+        </form>
+        <footer><i><%= msg %></i></footer>
+    </div>
+    
+</body>
+</html>
