@@ -22,7 +22,7 @@ const pattern = {
     messages: [{String}]
 }
 
-const user = new mongoose.Schema(pattern);
+const user = new mongoose.Schema(pattern,{timestamps: true});
 const UserModel = mongoose.model('User',user);
 
 module.exports ={
