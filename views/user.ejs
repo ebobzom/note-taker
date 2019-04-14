@@ -20,7 +20,7 @@
         
             <% if(msg.messages){ %>
               <% for(let i = 0; i < msg.messages.length; i++){ %>
-                  <p> <%=msg.messages[i]%> <p>
+                  <p> <%=msg.messages[i]%>  <a href="/deleteNote">DELETE</a><p>
               <%}%>
 
             <%}%>
