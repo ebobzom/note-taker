@@ -3,20 +3,30 @@ const cookieParser = require('cookie-parser');
 
 const UserModel = require('../db/mongodbModel').UserModel;
 
-const sendingNote = (req,res) => {
+const sendingNote = async (req,res) => {
     //check if all fields are filled
-    if(!req.body.title && !req.body.note ){
+    if(!req.body.note ){
         res.render('user',{msg: {
             firstName: ', please title and',
             lastName: 'note must be filled'
         }});
     }else{
-        console.log(req.cookies)
-        //find the user
-        const userFromDB = UserModel.findByIdAndUpdate(req.cookies.id,{$push: {
-            messages: 'anjsjsjjs'
-        }}).lean().exec();
-        console.log(userFromDB)
+       try {
+           //find the user
+            const userFromDB = await UserModel.findByIdAndUpdate(req.cookies.id,{$push: {
+                messages: req.body.note
+            }});
+
+           const userContentFromDB = await UserModel.findById(req.cookies.id).lean().exec();
+        //   console.log(userContentFromDB);
+         // res.send(userContentFromDB)
+          res.render('user',{msg: userContentFromDB});
+           
+       } catch (error) {
+            console.error('An error has occured:',error);
+       }
+        
+        
     }
 }
 module.exports = {
