@@ -4,17 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Your Notes</title>
+    <link rel="stylesheet" href="/css/user.css">
 </head>
 <body>
     <h1>Welcome <%= msg.firstName %> <%= msg.lastName%></h1>
-    <form action="/notes" method="POST">
-        <label for="title">Title</label>
-        <input type="text" name="title" id="title">
-        <label for="note">Note</label>
-        <input type="text" name="note" id="note">
-        <button type="submit">Add Note</button>
-    </form>
-    
+    <div class="container">
+        <form action="/notes" method="POST">
+            <label for="note">Note</label>
+            <input type="text" name="note" id="note">
+            <button type="submit">Add Note</button>
+        </form>
+    </div>
+    <div class="all-notes"></div>
 </body>
 </html>

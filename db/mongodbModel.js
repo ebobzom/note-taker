@@ -19,7 +19,7 @@ const pattern = {
         required: true,
         unique: true
     },
-    messages: [{String}]
+    messages: [{type: String}]
 }
 
 const user = new mongoose.Schema(pattern,{timestamps: true});
