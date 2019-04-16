@@ -21,7 +21,7 @@
             <% if(msg.messages){ %>
               <% for(let i = 0; i < msg.messages.length; i++){ %>
             
-                  <p> <%=msg.messages[i]%> <a href="<%= msg.notePath %>">DELETE</a></p>
+                  <p> <%=msg.messages[i]%> <a href="/<%= msg.messages[i].split(' ').join('') %>">DELETE</a></p>
               <%}%>
 
             <%}%>
