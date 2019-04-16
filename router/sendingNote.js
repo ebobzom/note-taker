@@ -17,10 +17,14 @@ const sendingNote = async (req,res) => {
                 messages: req.body.note
             }});
 
+    
            const userContentFromDB = await UserModel.findById(req.cookies.id).lean().exec();
-        //   console.log(userContentFromDB);
-         // res.send(userContentFromDB)
-          res.render('user',{msg: userContentFromDB});
+        
+         userContentFromDB.notePath = `deleteNote/${req.body.note}`;
+
+          res.render('user',{
+            msg: userContentFromDB
+        });
            
        } catch (error) {
             console.error('An error has occured:',error);
