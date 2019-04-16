@@ -33,7 +33,7 @@ appRouter.post('/login', logUserIn);
 appRouter.post('/notes', sendNote);
 
 //deleting note
-appRouter.get('/deleteNote/:noteToDelete', deleteNote);
+appRouter.get('/:noteToDelete', deleteNote);
 
 module.exports = {
     appRouter
